@@ -110,8 +110,6 @@ const actions = {
                 'Please fix the errors in the form before submitting.');
           return;
         }
-      
-
 
         
             const data= await mayaClient.get(
