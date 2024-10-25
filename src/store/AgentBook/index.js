@@ -61,6 +61,7 @@ const actions = {
         if (isNaN(latitudeValue)) {
             commit('set-error', { field: 'LatitudeError', message: 'Latitude must be a valid float.' });
         } else {
+            state.formData.Latitude=latitudeValue;
             commit('set-error', { field: 'LatitudeError', message: '' });
         }
     },
@@ -69,6 +70,7 @@ const actions = {
         if (isNaN(longitudeValue)) {
             commit('set-error', { field: 'LongitudeError', message: 'Longitude must be a valid float.' });
         } else {
+            state.formData.Longitude=longitudeValue;
             commit('set-error', { field: 'LongitudeError', message: '' });
         }
     },
