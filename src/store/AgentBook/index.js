@@ -106,14 +106,16 @@ const actions = {
           state.LongitudeError || 
           state.DurationError  || 
           state.RemarkError) {
-          commit('set-global-error', 'Please fix the errors in the form before submitting.');
+          commit('set-global-error',
+                'Please fix the errors in the form before submitting.');
           return;
         }
       
 
 
         
-            const data= await mayaClient.get(`/internal/parking-requests?mobile=${state.formData.Mobile}`);
+            const data= await mayaClient.get(
+              `/internal/parking-requests?mobile=${state.formData.Mobile}`);
             if(data.DisplayMsg){
               commit('set-global-error', 'Your request was not registered successfully');
               return;
@@ -140,7 +142,8 @@ const actions = {
                 ...state.formData,
                 Remark: `[AD] ${state.formData.Remark}` // Prepend [AD] in Remark
                 };
-                const resp = await mayaClient.post('/owner/parking-request', formDataWithAdRemark);
+                const resp = await mayaClient.post(
+                  '/owner/parking-request', formDataWithAdRemark);
                 if(resp.DisplayMsg){
                  commit('set-global-error', 'Your request was not registered successfully');
                  return;
